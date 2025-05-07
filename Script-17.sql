@@ -30,7 +30,7 @@ values('020','hewan','02-03-2020','female'),
 select * from malnutrition.child_data;
 
 
---select count(*) from  malnutrition.child_details where gender='female' AND name='Alem' or date;
+
 
 
 
