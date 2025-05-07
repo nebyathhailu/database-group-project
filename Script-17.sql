@@ -28,5 +28,3 @@ values('020','hewan','02-03-2020','female'),
 ('040','sami','17-05-2022','male')
 
 select * from malnutrition.child_data;
-
-
