@@ -25,14 +25,6 @@ values('020','hewan','02-03-2020','female'),
 ('037','dave','20-03-2022','male'),
 ('038','fili','12-03-2023','male'),
 ('039','loren','18-03-2024','male'),
-('040','sami','17-05-2022','male');
+('040','sami','17-05-2022','male')
 
 select * from malnutrition.child_data;
-
-
---select count(*) from  malnutrition.child_details where gender='female' AND name='Alem' or date;
-
-
-
-
-
