@@ -40,7 +40,7 @@ CONSTRAINT child_fk FOREIGN KEY(child_id)REFERENCES malnutrition.child_data(chil
 
 INSERT INTO malnutrition.monthly_progress_details(progress_id,child_id,current_weight_in_kg,current_height_in_cm)
 VALUES ('mpo1','020',7.5,64),
-('mpo2','021',8.0,62),
+('mpo2','021',8.0,62),database-group-project
 ('mpo3','022',9.0,63),
 ('mpo4','023',8.9,65),
 ('mpo5','024',8.5,62),
