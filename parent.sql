@@ -1,13 +1,13 @@
 create schema malnutrition;
 create table malnutrition.parent_data(
-parent_id VARCHAR primary key,
+parent_id VARCHAR (20) primary key,
 parent_name VARCHAR (100),
 gender VARCHAR (20),
-address VARCHAR (50),
+home_address VARCHAR (50),
 phone_number VARCHAR (20)
 );
 
-insert into malnutrition.parent_data(parent_id, parent_name, gender, address, phone_number)
+insert into malnutrition.parent_data(parent_id, parent_name, gender, home_address, phone_number)
 values('P01','Mary','female','Kissi','+254654789098'),
 ('P02','John','male','Karen','+254665489098'),
 ('P03','Sylvia','female','Kissi','+254654789234'),
@@ -25,3 +25,49 @@ values('P01','Mary','female','Kissi','+254654789098'),
 ('P15','Susan','female','Kissi','+254654098789');
 
 select * from malnutrition.parent_data;
+
+select count(*)
+from malnutrition.parent_data 
+where parent_name ilike 'k%';
+
+
+create table malnutrition.parent_child_relation(
+relation_id VARCHAR (20) primary key,
+parent_id VARCHAR (20) references malnutrition.parent_data(parent_id),
+child_id VARCHAR (20)  references malnutrition.child_data(child_id)
+);
+
+insert into malnutrition.parent_child_relation(relation_id, parent_id,child_id)
+values ('R01','P01','020'),
+('R02','P02','021'),
+('R03','P03','022'),
+('R04','P04','023'),
+('R05','P05','023'),
+('R06','P06','024'),
+('R07','P06','025'),
+('R08','P07','026'),
+('R09','P08','027'),
+('R10','P09','028'),
+('R11','P10','029'),
+('R12','P11','029'),
+('R13','P12','030'),
+('R14','P12','031'),
+('R15','P13','032'),
+('R16','P14','033'),
+('R17','P15','034'),
+('R18','P15','035');
+
+
+select * from malnutrition.parent_child_relation;
+
+select COUNT (*)
+FROM(
+SELECT child_id
+from malnutrition.parent_child_relation
+group by child_id 
+having COUNT(parent_id)>1
+) as children_with_many_parent;
+
+
+
+
