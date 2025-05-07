@@ -22,7 +22,7 @@ INSERT INTO malnutrition.medical_records (record_id,child_id, visit_date, weight
 ('R5','025', '2024-07-15', 16.0, 91.3, 'severe malnutrition'),
 ('R6','026', '2024-08-20', 12.8, 95.0, 'mild malnutrition'),
 ('R7','027', '2024-09-10', 14.5, 98.2, 'moderate malnutrition'),
-('R8','028', '2024-01-15', 16.0, 102.3, 'severe malnutrition'),
+('R8','028', '2024-01-15', 16.0, 93.9, 'severe malnutrition'),
 ('R10','029', '2024-11-20', 12.8, 95.0, 'mild malnutrition'),
 ('R11','030', '2024-12-10', 14.5, 98.2, 'moderate malnutrition'),
 ('R12','031', '2024-8-15', 16.0, 80.3, 'severe malnutrition'),
