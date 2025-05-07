@@ -6,7 +6,7 @@ dob date not null,
 gender varchar(10) check(gender in('male','female','non-binary','other')));
 insert into malnutrition.child_data(child_id,name,dob,gender)
 values('020','hewan','02-03-2020','female'),
-         ('021','lwam','03-04-2019','female'),
+('021','lwam','03-04-2019','female'),
 ('022','kbrom','20-03-2023','male'),
 ('023','heran','10-06-2024','female'),
 ('024','rgbe','10-04-2019','female'),
