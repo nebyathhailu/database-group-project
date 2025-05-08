@@ -29,12 +29,13 @@ VALUES ('mpo1','020',7.5,64),
 
 SELECT * FROM malnutrition.monthly_progress_details;
 
-SELECT * FROM malnutrion.monthly_progress_details;
-select COUNT(*) from (
-select child_id,
-min(weight/power(height_in_cm/100.0,2)) as max_bmi,
-max(current_weight/power(height_in_cm/100.0,2)) as max_bmi,
-from malnutrion.monthly_progress_details, group by child_id as bmi compire so where max_bmi >min_bmi,
-);
+SELECT COUNT (*)
+FROM (
+SELECT child_id,
+MIN(current_weight_in_kg/POWER(current_height_in_cm/100.0,2)) AS maximum_bmi,
+MAX(current_weight_in_kg/POWER(current_height_in_cm/100.0,2)) AS minimum_bmi
+FROM malnutrition.monthly_progress_details
+group BY child_id) AS bmi_compared
+WHERE maximum_bmi > minimum_bmi;
 
 
