@@ -31,11 +31,27 @@ FROM (
 SELECT child_id,
 MIN(current_weight_in_kg/POWER(current_height_in_cm/100.0,2)) AS maximum_bmi,
 MAX(current_weight_in_kg/POWER(current_height_in_cm/100.0,2)) AS minimum_bmi
-FROM malnuti
-rition.monthly_progress_details
+FROM malnutirition.monthly_progress_details
 group BY child_id) AS bmi_compared
 WHERE maximum_bmi > minimum_bmi;
+
 select * from malnutirition.child_data;
 select * from malnutirition.parent_data;
 select * from malnutirition.parent_child_relation;
-select * from malnutirition.medical_records;
+
+
+
+ALTER TABLE malnutirition.monthly_progress_details
+ADD BMI DECIMAL(5,2);
+
+UPDATE malnutirition.monthly_progress_details
+SET BMI = current_weight_in_kg / POWER(current_height_in_cm / 100, 2);
+
+ALTER TABLE malnutirition.monthly_progress_details
+DROP COLUMN BMI;
+
+
+
+
+
+
